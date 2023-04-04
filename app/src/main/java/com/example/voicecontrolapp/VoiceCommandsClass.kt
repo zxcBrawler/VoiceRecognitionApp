@@ -1,35 +1,40 @@
 package com.example.voicecontrolapp
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.widget.Button
 import kotlin.system.exitProcess
 
 class VoiceCommandsClass(private val context: Context) {
-    private var command : String = ""
-    fun commandManager(data : String){
-        when (data) {
-            "open screen one", "open first screen" -> {
-                val intent = Intent(context, MainActivity::class.java)
-                context.startActivity(intent)
-            }
-            "open screen two", "open second screen" -> {
-                val intent = Intent(context, MainActivity2::class.java)
-                context.startActivity(intent)
-            }
-            "exit" ->{
-                exitProcess(0)
-            }
-            else -> {
-                nullCommand()
-            }
-        }
-    }
-    fun buttonClick(button: Button){
+
+    private fun buttonClick(button: Button){
         button.performClick()
     }
-
-    fun nullCommand() : String{
-        command = "Unable to detect a command"
-        return command
+    fun openFirstScreen(data : String){
+        if (data == context.getString(R.string.open_first_screen) ||
+            data == context.getString(R.string.open_screen_one)){
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+    fun openSecondScreen(data : String){
+        if (data == context.getString(R.string.open_second_screen) ||
+            data == context.getString(R.string.open_screen_two)){
+            val intent = Intent(context, MainActivity2::class.java)
+            context.startActivity(intent)
+        }
+    }
+    fun exit(data : String){
+        if (data == context.getString(R.string.close) ||
+            data == context.getString(R.string.exit)){
+            exitProcess(0)
+        }
+    }
+    fun clickButton(data: String, button: Button){
+        when(data){
+            context.getString(R.string.click_red_button) -> buttonClick(button)
+            context.getString(R.string.click_blue_button) -> buttonClick(button)
+            context.getString(R.string.click_green_button) -> buttonClick(button)
+        }
     }
 }

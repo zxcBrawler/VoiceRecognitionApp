@@ -1,90 +1,100 @@
 package com.example.voicecontrolapp
 
 
+import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.os.Handler
+import android.os.Looper
+import android.speech.RecognitionListener
+import android.speech.SpeechRecognizer
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
-import java.util.*
+import com.example.voicecontrolapp.databinding.ActivityMainBinding
+import kotlin.properties.Delegates
 
-
-class MainActivity : AppCompatActivity() {
-    private val permissons = arrayOf(android.Manifest.permission.RECORD_AUDIO)
-    private lateinit var inputVoice: Button
+class MainActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityMainBinding
     private lateinit var vm : ViewModelClass
-    private lateinit var redButton : Button
-    private lateinit var blueButton : Button
-    private lateinit var greenButton : Button
-    private lateinit var commandText : TextView
+
+    private val permissons = arrayOf(Manifest.permission.RECORD_AUDIO)
+    private val recognizerSpeech : RecognizerSpeech = RecognizerSpeech(this)
+    private var permissionToRecordAudio by Delegates.notNull<Boolean>()
     private val voiceCommandsClass  = VoiceCommandsClass(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        commandText = findViewById(R.id.commandText)
-        redButton = findViewById(R.id.redButton)
-        blueButton = findViewById(R.id.blueButton)
-        greenButton = findViewById(R.id.greenButton)
-        inputVoice = findViewById(R.id.inputVoice)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         vm = ViewModelProvider(this)[ViewModelClass::class.java]
-
-        vm.message.observe(this) { it ->
-            it.getContentIfNotHandled()?.let {
-               commandText.text = it
-            }
-        }
-        vm.getViewState().observe(this) { viewState ->
-            render(viewState)
-        }
-        if (!vm.permissionToRecordAudio){
+        viewModelCallback()
+        permissionToRecordAudio = checkAudioRecordingPermission()
+        if (!permissionToRecordAudio){
             ActivityCompat.requestPermissions(this,permissons, 0)
         }
 
-        redButton.setOnClickListener {
+        binding.redButton.setOnClickListener {
             vm.redButtonClicked()
         }
-        blueButton.setOnClickListener {
-           vm.blueButtonClicked()
+        binding.blueButton.setOnClickListener {
+            vm.blueButtonClicked()
         }
-        greenButton.setOnClickListener {
+        binding.greenButton.setOnClickListener {
             vm.greenButtonClicked()
         }
-        inputVoice.setOnClickListener {
-            if (vm.isListening){
-                vm.stopListening()
-            }
-            else {
-                vm.startListening()
-            }
+        binding.inputVoice.setOnClickListener {
+            recognizerSpeech.startListening()
+            Handler(Looper.getMainLooper()).postDelayed({
+                recognizerSpeech.stopListening()
+            }, 3000)
         }
 
+        recognizerSpeech.recognizerSpeech.setRecognitionListener(object : RecognitionListener{
+            override fun onReadyForSpeech(params: Bundle?) {}
+
+            override fun onBeginningOfSpeech() {
+               vm.listeningMessage()
+            }
+            override fun onRmsChanged(rmsdB: Float) {}
+
+            override fun onBufferReceived(buffer: ByteArray?) {}
+
+            override fun onEndOfSpeech() {}
+
+            override fun onError(error: Int) {}
+
+            override fun onResults(results: Bundle?) {
+                if (results != null) {
+                    val data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                    vm.msg.value = data?.get(0).toString()
+                }
+            }
+
+            override fun onPartialResults(partialResults: Bundle?) {
+                if (partialResults != null) {
+                    val data = partialResults.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                    vm.msg.value = data?.get(0).toString()
+                }
+            }
+
+            override fun onEvent(eventType: Int, params: Bundle?) {}
+
+        })
     }
 
-    private fun render(viewState: ViewModelClass.ViewState?) {
-        if (viewState == null) return
-        commandText.text = viewState.spokenText.lowercase(Locale.getDefault())
-        voiceCommandsClass.commandManager(viewState.spokenText.lowercase(Locale.getDefault()))
-        when (viewState.spokenText.lowercase(Locale.getDefault())) {
-            "click red button" -> {
-                voiceCommandsClass.buttonClick(redButton)
-            }
-            "click blue button" -> {
-                voiceCommandsClass.buttonClick(blueButton)
-            }
-            "click green button" -> {
-                voiceCommandsClass.buttonClick(greenButton)
-            }
-            else -> {
-                voiceCommandsClass.nullCommand()
-            }
+    private fun viewModelCallback() {
+        vm.getMessage().observe(this) {
+            binding.commandText.text = it
+            voiceCommandsClass.clickButton(it.toString(),binding.redButton)
+            voiceCommandsClass.clickButton(it.toString(),binding.blueButton)
+            voiceCommandsClass.clickButton(it.toString(),binding.greenButton)
+            voiceCommandsClass.openSecondScreen(it.toString())
+            voiceCommandsClass.openFirstScreen(it.toString())
+            voiceCommandsClass.exit(it.toString())
         }
     }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -98,4 +108,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun checkAudioRecordingPermission() =
+        ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+
 }
