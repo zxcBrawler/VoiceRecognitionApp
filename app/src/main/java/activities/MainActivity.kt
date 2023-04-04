@@ -1,6 +1,4 @@
-package com.example.voicecontrolapp
-
-
+package activities
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +10,12 @@ import android.speech.SpeechRecognizer
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.ViewModelProvider
+import com.example.voicecontrolapp.R
 import com.example.voicecontrolapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import utils.RecognizerSpeech
+import utils.VoiceCommandsClass
+import viewmodels.ViewModelClass
 import javax.inject.Inject
 import kotlin.properties.Delegates
 @AndroidEntryPoint

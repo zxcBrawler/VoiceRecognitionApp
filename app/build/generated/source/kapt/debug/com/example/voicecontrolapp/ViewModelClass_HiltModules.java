@@ -12,6 +12,8 @@ import dagger.hilt.codegen.OriginatingElement;
 import dagger.multibindings.IntoMap;
 import dagger.multibindings.IntoSet;
 import dagger.multibindings.StringKey;
+import viewmodels.ViewModelClass;
+
 import java.lang.String;
 
 @OriginatingElement(
@@ -29,7 +31,7 @@ public final class ViewModelClass_HiltModules {
 
     @Binds
     @IntoMap
-    @StringKey("com.example.voicecontrolapp.ViewModelClass")
+    @StringKey("viewmodels.ViewModelClass")
     @HiltViewModelMap
     public abstract ViewModel binds(ViewModelClass vm);
   }
@@ -44,7 +46,7 @@ public final class ViewModelClass_HiltModules {
     @IntoSet
     @HiltViewModelMap.KeySet
     public static String provide() {
-      return "com.example.voicecontrolapp.ViewModelClass";
+      return "viewmodels.ViewModelClass";
     }
   }
 }

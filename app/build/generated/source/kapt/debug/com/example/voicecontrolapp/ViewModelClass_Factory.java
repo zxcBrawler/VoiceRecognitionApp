@@ -6,6 +6,8 @@ import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
 import dagger.internal.ScopeMetadata;
+import viewmodels.ViewModelClass;
+
 import javax.inject.Provider;
 
 @ScopeMetadata

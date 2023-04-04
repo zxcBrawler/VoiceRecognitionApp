@@ -6,6 +6,8 @@ import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
 import dagger.internal.ScopeMetadata;
+import utils.RecognizerSpeech;
+
 import javax.inject.Provider;
 
 @ScopeMetadata("javax.inject.Singleton")

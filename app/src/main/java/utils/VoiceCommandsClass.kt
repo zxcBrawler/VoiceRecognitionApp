@@ -1,8 +1,10 @@
-package com.example.voicecontrolapp
+package utils
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.Button
+import activities.MainActivity
+import activities.MainActivity2
+import com.example.voicecontrolapp.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

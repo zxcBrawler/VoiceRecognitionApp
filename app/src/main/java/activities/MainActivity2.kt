@@ -1,4 +1,4 @@
-package com.example.voicecontrolapp
+package activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,12 +6,11 @@ import android.os.Handler
 import android.os.Looper
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.voicecontrolapp.databinding.ActivityMain2Binding
-import java.util.*
+import utils.RecognizerSpeech
+import utils.VoiceCommandsClass
+import viewmodels.ViewModelClass
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityMain2Binding
