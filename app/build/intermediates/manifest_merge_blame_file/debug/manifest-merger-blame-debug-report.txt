@@ -26,73 +26,75 @@
 17-->[androidx.core:core:1.9.0] C:\Users\posts\.gradle\caches\transforms-3\1cadfbc3e0dcfe86f162d134be826772\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 18
 19    <application
-19-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:6:5-28:19
-20        android:allowBackup="true"
-20-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:7:9-35
-21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.9.0] C:\Users\posts\.gradle\caches\transforms-3\1cadfbc3e0dcfe86f162d134be826772\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
-22        android:dataExtractionRules="@xml/data_extraction_rules"
-22-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:8:9-65
-23        android:debuggable="true"
-24        android:extractNativeLibs="false"
-25        android:fullBackupContent="@xml/backup_rules"
-25-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:9:9-54
-26        android:icon="@mipmap/ic_launcher"
-26-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:10:9-43
-27        android:label="@string/app_name"
-27-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:11:9-41
-28        android:roundIcon="@mipmap/ic_launcher_round"
-28-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:12:9-54
-29        android:supportsRtl="true"
-29-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:13:9-35
-30        android:testOnly="true"
-31        android:theme="@style/Theme.VoiceControlApp" >
-31-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:14:9-53
-32        <activity
-32-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:16:9-18:40
-33            android:name="com.example.voicecontrolapp.MainActivity2"
-33-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:17:13-42
-34            android:exported="false" />
-34-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:18:13-37
-35        <activity
-35-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:19:9-27:20
-36            android:name="com.example.voicecontrolapp.MainActivity"
-36-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:20:13-41
-37            android:exported="true" >
-37-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:21:13-36
-38            <intent-filter>
-38-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:22:13-26:29
-39                <action android:name="android.intent.action.MAIN" />
-39-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:23:17-69
-39-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:23:25-66
-40
-41                <category android:name="android.intent.category.LAUNCHER" />
-41-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:25:17-77
-41-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:25:27-74
-42            </intent-filter>
-43        </activity>
-44
-45        <provider
-45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-46            android:name="androidx.startup.InitializationProvider"
-46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-47            android:authorities="com.example.voicecontrolapp.androidx-startup"
-47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-48            android:exported="false" >
-48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-49            <meta-data
-49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-50                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-51                android:value="androidx.startup" />
-51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-52            <meta-data
-52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-53                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-53-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-54                android:value="androidx.startup" />
-54-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-55        </provider>
-56    </application>
-57
-58</manifest>
+19-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:6:5-29:19
+20        android:name="com.example.voicecontrolapp.MyApp"
+20-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:7:9-30
+21        android:allowBackup="true"
+21-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:8:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.9.0] C:\Users\posts\.gradle\caches\transforms-3\1cadfbc3e0dcfe86f162d134be826772\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+23        android:dataExtractionRules="@xml/data_extraction_rules"
+23-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:9:9-65
+24        android:debuggable="true"
+25        android:extractNativeLibs="false"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:10:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:11:9-43
+28        android:label="@string/app_name"
+28-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:12:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:13:9-54
+30        android:supportsRtl="true"
+30-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:14:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.VoiceControlApp" >
+32-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:15:9-53
+33        <activity
+33-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:17:9-19:40
+34            android:name="com.example.voicecontrolapp.MainActivity2"
+34-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:18:13-42
+35            android:exported="false" />
+35-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:19:13-37
+36        <activity
+36-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:20:9-28:20
+37            android:name="com.example.voicecontrolapp.MainActivity"
+37-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:21:13-41
+38            android:exported="true" >
+38-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:22:13-36
+39            <intent-filter>
+39-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:23:13-27:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:24:17-69
+40-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:24:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:26:17-77
+42-->D:\VoiceControlApp\app\src\main\AndroidManifest.xml:26:27-74
+43            </intent-filter>
+44        </activity>
+45
+46        <provider
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+47            android:name="androidx.startup.InitializationProvider"
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+48            android:authorities="com.example.voicecontrolapp.androidx-startup"
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+49            android:exported="false" >
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+50            <meta-data
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+51                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+52                android:value="androidx.startup" />
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\posts\.gradle\caches\transforms-3\d7ebe1ce8f2055525d1c70e954c7aa95\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+53            <meta-data
+53-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+54                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+54-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+55                android:value="androidx.startup" />
+55-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\posts\.gradle\caches\transforms-3\da00f32f85a7526c63e3d32d4781c6f0\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+56        </provider>
+57    </application>
+58
+59</manifest>

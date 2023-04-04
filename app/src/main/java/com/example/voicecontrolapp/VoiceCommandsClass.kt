@@ -3,9 +3,14 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Button
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.system.exitProcess
 
-class VoiceCommandsClass(private val context: Context) {
+@Singleton
+class VoiceCommandsClass @Inject constructor(
+   @ApplicationContext private val context: Context) {
 
     private fun buttonClick(button: Button){
         button.performClick()

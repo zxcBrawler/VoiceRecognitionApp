@@ -10,25 +10,28 @@ import android.os.Looper
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.voicecontrolapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlin.properties.Delegates
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
-    private lateinit var vm : ViewModelClass
+
+    val vm : ViewModelClass by viewModels()
 
     private val permissons = arrayOf(Manifest.permission.RECORD_AUDIO)
-    private val recognizerSpeech : RecognizerSpeech = RecognizerSpeech(this)
+    @Inject lateinit var recognizerSpeech : RecognizerSpeech
     private var permissionToRecordAudio by Delegates.notNull<Boolean>()
-    private val voiceCommandsClass  = VoiceCommandsClass(this)
+    @Inject lateinit var voiceCommandsClass : VoiceCommandsClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        vm = ViewModelProvider(this)[ViewModelClass::class.java]
         viewModelCallback()
         permissionToRecordAudio = checkAudioRecordingPermission()
         if (!permissionToRecordAudio){
@@ -86,10 +89,18 @@ class MainActivity : AppCompatActivity(){
 
     private fun viewModelCallback() {
         vm.getMessage().observe(this) {
-            binding.commandText.text = it
-            voiceCommandsClass.clickButton(it.toString(),binding.redButton)
-            voiceCommandsClass.clickButton(it.toString(),binding.blueButton)
-            voiceCommandsClass.clickButton(it.toString(),binding.greenButton)
+            binding.commandText.text = it.lowercase()
+            when (it) {
+                applicationContext.getString(R.string.click_red_button) -> {
+                    voiceCommandsClass.clickButton(it.toString(),binding.redButton)
+                }
+                applicationContext.getString(R.string.click_green_button) -> {
+                    voiceCommandsClass.clickButton(it.toString(),binding.greenButton)
+                }
+                applicationContext.getString(R.string.click_blue_button) -> {
+                    voiceCommandsClass.clickButton(it.toString(),binding.blueButton)
+                }
+            }
             voiceCommandsClass.openSecondScreen(it.toString())
             voiceCommandsClass.openFirstScreen(it.toString())
             voiceCommandsClass.exit(it.toString())

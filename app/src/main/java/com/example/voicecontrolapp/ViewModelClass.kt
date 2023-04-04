@@ -2,9 +2,12 @@ package com.example.voicecontrolapp
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class ViewModelClass (application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ViewModelClass @Inject constructor (application: Application) : AndroidViewModel(application) {
     var msg = SingleLiveEvent<String>()
 
     fun getMessage(): SingleLiveEvent<String> {
